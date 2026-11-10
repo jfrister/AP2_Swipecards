@@ -14,11 +14,11 @@ Offlinefähige, mobile Lernkarten-App für die schriftliche AP2 FISI und WiSo. D
 Die App ist eine PWA und enthält Manifest sowie Service Worker. Sie benötigt zum Installieren eine HTTPS-Adresse, zum Beispiel GitHub Pages:
 
 1. Das Repository zu GitHub pushen.
-2. In GitHub unter **Settings → Pages** als Quelle **GitHub Actions** wählen.
+2. In GitHub unter **Settings → Pages** die veröffentlichte Pages-Adresse prüfen.
 3. Nach dem Workflow-Lauf die GitHub-Pages-Adresse in Safari auf dem iPhone öffnen.
 4. In Safari **Teilen → Zum Home-Bildschirm** wählen.
 
-Der Workflow `.github/workflows/deploy-pages.yml` ist dafür bereits enthalten. Die Karten und der Fortschritt funktionieren nach dem ersten Laden offline.
+Die Karten und der Fortschritt funktionieren nach dem ersten Laden offline.
 
 ## Lernprioritäten
 
