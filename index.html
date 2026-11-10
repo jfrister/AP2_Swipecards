@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#161027" />
+    <meta name="description" content="Swipe-Lernkarten für die AP2 FISI und WiSo." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>.onboarding-card{margin-top:13px;padding:20px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(43,33,70,.67)}.onboarding-card h2{font-size:1.35rem}.onboarding-card p:not(.eyebrow){margin:8px 0 14px;color:#b9b2cc;line-height:1.45;font-size:.87rem}</style>
+    <title>AP2 Swipecards</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Startseite"><span class="brand-mark">↔</span><span>AP2<br><b>Swipecards</b></span></a>
+        <button id="install-button" class="icon-button hidden" type="button" aria-label="App installieren">⇩</button>
+      </header>
+
+      <section id="start-view" class="view active" aria-labelledby="start-title">
+        <p class="eyebrow">FISI · AO 2020 · Katalog 2025</p>
+        <h1 id="start-title">Lerne, was noch<br><em>nicht sitzt.</em></h1>
+        <p class="intro">Karte umdrehen, ehrlich entscheiden und mit deinen Unsicherheiten weiterlernen.</p>
+        <section class="scoreboard" aria-label="Dein Lernstand">
+          <div><strong id="known-count">0</strong><span>kann ich</span></div>
+          <div><strong id="learn-count">0</strong><span>noch lernen</span></div>
+          <div><strong id="open-count">0</strong><span>offen</span></div>
+        </section>
+        <section class="deck-picker" aria-labelledby="deck-title">
+          <div class="section-title"><div><p class="eyebrow">Kartendeck wählen</p><h2 id="deck-title">Womit starten?</h2></div><button id="reset-button" class="text-button" type="button">Fortschritt löschen</button></div>
+          <div id="deck-list" class="deck-list"></div>
+        </section>
+        <section class="learn-again">
+          <p class="eyebrow">Intelligent wiederholen</p>
+          <h2>Nur offene & unsichere Karten</h2>
+          <p>Dein persönlicher Wiederholungsstapel: alles, was nach links gewischt wurde, plus noch nicht bewertete Karten.</p>
+          <button id="start-priority" class="primary-button" type="button">Schwächen lernen <span>→</span></button>
+        </section>
+        <section class="onboarding-card">
+          <p class="eyebrow">Neu anfangen</p>
+          <h2>Erstmal einarbeiten</h2>
+          <p>Starte mit den wichtigsten Grundlagen. Hier erscheint zuerst die Erklärung; danach wischst du wie gewohnt nach rechts oder links.</p>
+          <button id="start-learning" class="secondary-button" type="button">Grundlagen ansehen <span>→</span></button>
+        </section>
+      </section>
+
+      <section id="study-view" class="view" aria-live="polite">
+        <div class="study-topline"><button id="back-button" class="back-button" type="button">← Übersicht</button><span id="card-counter"></span></div>
+        <div class="progress-track"><span id="progress-bar"></span></div>
+        <div id="card-stage" class="card-stage">
+          <article id="next-card" class="study-card ghost-card" aria-hidden="true"></article>
+          <article id="study-card" class="study-card" tabindex="0" aria-label="Lernkarte. Zum Umdrehen antippen.">
+            <div class="card-face card-front">
+              <div class="card-meta"><span id="card-category" class="chip"></span><span id="card-length"></span></div>
+              <p class="card-label">Vorderseite</p>
+              <h2 id="card-title"></h2>
+              <p id="card-prompt" class="card-prompt"></p>
+              <p class="flip-hint">Antippen zum Umdrehen <span>↻</span></p>
+            </div>
+            <div class="card-face card-back">
+              <div class="card-meta"><span id="back-category" class="chip"></span><span class="answer-label">Antwort</span></div>
+              <div id="card-answer" class="card-answer"></div>
+              <p class="flip-hint">Nochmal antippen für die Frage <span>↻</span></p>
+            </div>
+          </article>
+          <div id="empty-state" class="empty-state hidden"><span>✓</span><h2>Stapel geschafft!</h2><p>Du hast alle Karten dieses Durchgangs bewertet.</p><button id="restart-button" class="primary-button" type="button">Noch einmal mischen</button><button id="home-button" class="secondary-button" type="button">Zur Übersicht</button></div>
+        </div>
+        <div id="swipe-help" class="swipe-help"><span>← Noch lernen</span><span>Karte umdrehen</span><span>Kann ich →</span></div>
+        <div id="controls" class="controls">
+          <button id="learn-button" class="decision-button learn" type="button" aria-label="Noch lernen: nach links wischen"><span>×</span><small>Noch lernen</small></button>
+          <button id="flip-button" class="flip-button" type="button" aria-label="Karte umdrehen">↻</button>
+          <button id="know-button" class="decision-button know" type="button" aria-label="Kann ich: nach rechts wischen"><span>✓</span><small>Kann ich</small></button>
+        </div>
+        <p class="keyboard-hint">Tastatur: ← noch lernen · Leertaste drehen · → kann ich</p>
+      </section>
+    </main>
+    <script src="cards.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

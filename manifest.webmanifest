@@ -1,0 +1,10 @@
+{
+  "name": "AP2 Swipecards",
+  "short_name": "AP2 Karten",
+  "description": "Swipe-Lernkarten für AP2 FISI und WiSo.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#161027",
+  "theme_color": "#161027",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
