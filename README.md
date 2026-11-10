@@ -9,6 +9,17 @@ Offlinefähige, mobile Lernkarten-App für die schriftliche AP2 FISI und WiSo. D
 - Nach rechts wischen / `→`: **Kann ich**.
 - Der Browser speichert den Lernstand nur lokal auf dem Gerät.
 
+## Auf dem iPhone installieren
+
+Die App ist eine PWA und enthält Manifest sowie Service Worker. Sie benötigt zum Installieren eine HTTPS-Adresse, zum Beispiel GitHub Pages:
+
+1. Das Repository zu GitHub pushen.
+2. In GitHub unter **Settings → Pages** als Quelle **GitHub Actions** wählen.
+3. Nach dem Workflow-Lauf die GitHub-Pages-Adresse in Safari auf dem iPhone öffnen.
+4. In Safari **Teilen → Zum Home-Bildschirm** wählen.
+
+Der Workflow `.github/workflows/deploy-pages.yml` ist dafür bereits enthalten. Die Karten und der Fortschritt funktionieren nach dem ersten Laden offline.
+
 ## Lernprioritäten
 
 Die Reihenfolge „Schwächen zuerst“ bevorzugt offene und als unsicher markierte Karten. Die Karten sind zusätzlich mit einer transparenten Lernpriorität (hoch, mittel, ergänzend) versehen: Sie leitet sich aus den zentralen schriftlichen AP2-Bereichen, den Katalogänderungen ab Sommer 2025 und wiederkehrenden Themen in den vorhandenen Prüfungssätzen ab. Sie ist keine Prognose einzelner kommender Prüfungsfragen.
